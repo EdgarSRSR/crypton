@@ -1,1 +1,1 @@
-export {initDb} from './connections';
+export {sequelizer} from './connections';

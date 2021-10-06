@@ -1,9 +1,8 @@
 import * as Hapi from '@hapi/hapi';
 import { Server, ResponseToolkit, Request} from 'hapi';
-import {initDb} from './db'
 import 'colors';
 import {userController} from './controllers'
-import {Connection} from 'typeorm'
+import {sequelizer} from './db'
 
 const init = async () => {
   const server: Server = Hapi.server({
@@ -19,9 +18,9 @@ server.route({
   }
 });
 
-  const con: Connection = await initDb();
+  //const seq = await sequelize();
   console.log('DB init -> Done');
-  server.route(userController(con));
+  //server.route(userController(seq));
   await server.start().then();
   console.log('Started'.green, `Server running on ${server.info.uri}`.green);
 };

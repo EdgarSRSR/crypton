@@ -1,3 +1,5 @@
+
+. ORM sequelize (sequelize npm, suqelize-typescript npm) а именно методы: create, findAll, sum, min, max, count, findOne, findOrCreate и операторы [Op.].
 Task: Based on the previous task, it is necessary to finalize the API for interacting with ORM, namely, to implement the STUDENTS table with the fields: id, firstName, lastname, sex, phone, faculty, Average. Implement autofill of the table with data. Tor to the API:
 - API Getting the average score for the faculty
 - API Getting the minimum and maximum average grade by faculty/gender

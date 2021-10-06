@@ -1,4 +1,5 @@
 import {UpdateDateColumn, CreateDateColumn} from 'typeorm';
+import { Sequelize, DataTypes, Model } from 'sequelize';
 
 export class SharedProp{
   @CreateDateColumn({

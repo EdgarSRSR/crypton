@@ -13,7 +13,10 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.0",
     "colors": "^1.4.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.5",
     "sqlite3": "^5.0.2",
     "typeorm": "^0.2.38"
   },
