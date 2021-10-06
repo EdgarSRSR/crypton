@@ -1,0 +1,9 @@
+Task: Based on the previous task, it is necessary to finalize the API for interacting with ORM, namely, to implement the STUDENTS table with the fields: id, firstName, lastname, sex, phone, faculty, Average. Implement autofill of the table with data. Tor to the API:
+- API Getting the average score for the faculty
+- API Getting the minimum and maximum average grade by faculty/gender
+- API Getting a list of students by faculty in descending order of average grade
+- API Getting information about a student by id
+- API For editing information about a student by id
+- Validation and verification of the existence of such a student in the database
+- Return of errors in the absence of students by the transmitted parameter (list of HTTP status codes)
+- Check the performance using the postman tool
