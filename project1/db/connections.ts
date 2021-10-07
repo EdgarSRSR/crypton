@@ -1,16 +1,9 @@
 import 'reflect-metadata'
 //import { Connection, createConnection} from 'typeorm';
-import {Student} from './entities';
-/*export const initDb = async (): Promise<Connection> => {
-  const con = await createConnection({
-    type : 'sqlite',
-    database: './hapi.db',
-    entities: [UsersEntity],
-  });
-  await con.synchronize(true);
-  return con;
-};*/
-import { Sequelize, DataTypes, Model } from 'sequelize';
+
+import * as sequelize from 'sequelize';
+import {StudentFactory} from './entities/students';
+/**
 export const sequelizer = new Sequelize('cryptontask2', 'postgres', 'SecuelaPost', {
   host: 'localhost',
   dialect: 'postgres'
@@ -21,7 +14,26 @@ try {
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }
+**/
+export const dbConfig = new sequelize.Sequelize(
+    (process.env.DB_NAME = "cryptontask2"),
+    (process.env.DB_USER = "postgress"),
+    (process.env.DB_PASSWORD = "SecuelaPost"),
+    {
+        port: Number(process.env.DB_PORT) || 54320,
+        host: process.env.DB_HOST || "localhost",
+        dialect: "postgres",
+        pool: {
+            min: 0,
+            max: 5,
+            acquire: 30000,
+            idle: 10000,
+        },
+    }
+);
 
 //await Student.sync({ force: true });
-//console.log("The table for the Student model was just (re)created!");
-module.exports = sequelizer
+console.log("The table for the Student model was just (re)created!");
+
+export const Student = StudentFactory(dbConfig)
+module.exports = dbConfig

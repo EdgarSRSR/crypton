@@ -1,1 +1,2 @@
-export {sequelizer} from './connections';
+export {dbConfig} from './connections';
+export {Student} from './connections';

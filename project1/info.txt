@@ -9,3 +9,43 @@ Task: Based on the previous task, it is necessary to finalize the API for intera
 - Validation and verification of the existence of such a student in the database
 - Return of errors in the absence of students by the transmitted parameter (list of HTTP status codes)
 - Check the performance using the postman tool
+
+
+index useless code
+/**
+import * as Hapi from '@hapi/hapi';
+import { Server, ResponseToolkit, Request} from 'hapi';
+
+import {studentController} from './controllers'
+
+
+const init = async () => {
+  const server: Server = Hapi.server({
+    port: 3000,
+    host: 'localhost',
+  });
+
+server.route({
+  method: 'GET',
+  path: '/',
+  handler: (request: Request, h: ResponseToolkit, err?: Error) =>{
+    return {msg: 'Hello World'};
+  }
+});
+
+  //const seq = await sequelize();
+  console.log('DB init -> Done');
+  //server.route(userController(seq));
+  await server.start().then();
+  console.log('Started'.green, `Server running on ${server.info.uri}`.green);
+
+
+};
+
+process.on('unhandleRejection', (err)=> {
+  console.error(err);
+  process.exit();
+});
+
+init();
+**//
