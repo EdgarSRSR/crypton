@@ -3,13 +3,14 @@ import 'reflect-metadata'
 
 import * as sequelize from 'sequelize';
 import {StudentFactory} from './entities/students';
+
 /**
-export const sequelizer = new Sequelize('cryptontask2', 'postgres', 'SecuelaPost', {
+export const dbConfig = new Sequelize('cryptontask2', 'postgres', 'SecuelaPost', {
   host: 'localhost',
   dialect: 'postgres'
 });
 try {
-  await sequelizer.authenticate();
+  await dbConfig.authenticate();
   console.log('Connection has been established successfully.');
 } catch (error) {
   console.error('Unable to connect to the database:', error);
