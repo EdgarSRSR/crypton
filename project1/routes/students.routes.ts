@@ -2,6 +2,7 @@ import {Server} from '@hapi/hapi'
 import {createStudent, getStudents, getStudent, deleteStudent, updateStudent} from '../controllers/students.controller'
 import {dbConfig} from '../db/connections'
 import {Student} from '../db/connections'
+import {faculty} from '../db/entities/faculties'
 export const routes = (server: Server) => {
 
   server.route({
@@ -67,6 +68,20 @@ export const routes = (server: Server) => {
     method: 'DELETE',
     path: '/students/{id}',
     handler: deleteStudent
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/faculty',
+    handler: async (request, h) => {
+            let faculty = request.payload
+            try {
+                const facultyAdd = await dbConfig.faculty.create(faculty);
+                return facultyAdd;
+            } catch(error) {
+                console.log(error);
+            };
+        }
   });
 
 }
