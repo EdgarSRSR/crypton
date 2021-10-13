@@ -21,7 +21,7 @@ export const dbConfig = new sequelize.Sequelize(
     (process.env.DB_USER = "postgress"),
     (process.env.DB_PASSWORD = "SecuelaPost"),
     {
-        port: Number(process.env.DB_PORT) || 54320,
+        port: Number(process.env.DB_PORT) || 5432,
         host: process.env.DB_HOST || "localhost",
         dialect: "postgres",
         pool: {
@@ -33,6 +33,26 @@ export const dbConfig = new sequelize.Sequelize(
     }
 );
 
+
+const sequelize = new
+Sequelize(config.dbLink,{
+
+  models:[
+
+  ],
+  pool: {
+    max: 60,
+    min: 0,
+    idle: 30000,
+    acquire: 100000,
+  },
+  logging: false
+});
+
+sequelize.sync();
+models/index.ts
+server/index.ts - server.app.db = sequelize;
+web3.eth.subscribe('newBlockHeaders')
 //await Student.sync({ force: true });
 console.log("The table for the Student model was just (re)created!");
 

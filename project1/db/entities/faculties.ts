@@ -7,7 +7,7 @@ interface FacultyAttributes {
   id: string;
   name: string;
 }
-
+/**
 module.exports = (sequelize, DataTypes) =>{
   const faculty = sequelize.define('faculty', {
     id: {
@@ -31,32 +31,32 @@ module.exports = (sequelize, DataTypes) =>{
 
   return faculty;
 
-};
+};**/
 
 module.exports = (sequelize: any, DataTypes: any) => {
   class Faculty extends Model<FacultyAttributes>
   implements FacultyAttributes{
-    id!: DataTypes.UUID,
+    id!: number,
     name!: string
-
     static associate(models: any) {
-
+      Faculty.hasMany(models.user, {
+        foreignKey: 'faculty_id'
+      });
     }
   };
-  faculty.init({
+  Faculty.init({
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoincrement: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false
     }, {
     sequelize,
-    tableName: 'Faculties',
     modelName: 'Faculty',
   });
-  return faculty;
+  return Faculty;
 };
