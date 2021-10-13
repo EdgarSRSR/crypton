@@ -1,3 +1,4 @@
+/**
 import { Connection, Repository } from 'typeorm';
 import { UsersEntity } from '../../db/entities';
 import { ResponseToolkit, ServerRoute, Request } from 'hapi';
@@ -33,3 +34,4 @@ export const userController = (con: Connection): Array<ServerRoute> => {
     },
   ];
 };
+**/

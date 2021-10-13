@@ -4,6 +4,11 @@ import {initDb} from './db'
 import 'colors';
 import {userController} from './controllers'
 import {Connection} from 'typeorm'
+import {v4 as uuidv4} from 'uuid';
+
+
+let userId : string[];
+let id;
 
 const init = async () => {
   const server: Server = Hapi.server({
@@ -14,14 +19,13 @@ const init = async () => {
 server.route({
   method: 'GET',
   path: '/',
-  handler: (request: Request, h: ResponseToolkit, err?: Error) =>{
-    return {msg: 'Hello World'};
+  handler: (request: any, h: any) =>{
+    id = uuidv4();
+    console.log(userId);
+    return 'Привет ' + id;
   }
 });
 
-  const con: Connection = await initDb();
-  console.log('DB init -> Done');
-  server.route(userController(con));
   await server.start().then();
   console.log('Started'.green, `Server running on ${server.info.uri}`.green);
 };

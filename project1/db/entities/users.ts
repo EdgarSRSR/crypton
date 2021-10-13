@@ -1,3 +1,4 @@
+/**
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 import {SharedProp} from './sharedProp';
 import uuid = require('uuid');
@@ -12,3 +13,4 @@ export class UsersEntity extends SharedProp{
   firstName: string;
 
 }
+**/

@@ -1,3 +1,4 @@
+/**
 import {UpdateDateColumn, CreateDateColumn} from 'typeorm';
 
 export class SharedProp{
@@ -15,3 +16,4 @@ export class SharedProp{
   })
   updatedAt: Date;
 }
+**/

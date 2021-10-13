@@ -1,4 +1,4 @@
-import 'reflect-metadata'
+/**import 'reflect-metadata'
 import { Connection, createConnection} from 'typeorm';
 import {UsersEntity} from './entities';
 export const initDb = async (): Promise<Connection> => {
@@ -10,3 +10,4 @@ export const initDb = async (): Promise<Connection> => {
   await con.synchronize(true);
   return con;
 };
+**/
