@@ -1,3 +1,4 @@
+/**
 import { Sequelize, DataTypes, Model, BuildOptions } from 'sequelize';
 import uuid = require('uuid');
 
@@ -50,3 +51,4 @@ module.exports = (sequelize, DataTypes) =>{
   return students;
 
 };
+**/

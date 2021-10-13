@@ -1,55 +1,44 @@
 //import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 import { Sequelize, DataTypes, Model, BuildOptions } from 'sequelize';
 import uuid = require('uuid');
+const { where } = require('sequelize');
+module.exports = (sequelize, DataTypes) =>{
+  const Student = sequelize.define("student",{
 
-export interface StudentAttributes {
-  firstName: string;
-  lastName: string;
-  sex: string;
-  phone: string;
-  faculty: string;
-  average: Number;
-  id: string;
-
-}
-
-export interface StudentModel extends Model<StudentAttributes>, StudentAttributes {}
-
-export class Student extends Model<StudentModel, StudentAttributes> {}
-export type StudentStatic = typeof Model & {
-   new (values?: object, options?: BuildOptions): StudentModel;
+  id: {
+    type: Sequelize.UUID,
+    primaryKey: true,
+    allowNull: false,
+    defaultValue: Sequelize.UUID4
+  },
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull : false,
+  },
+  sex: {
+    type: DataTypes.STRING
+  },
+  phone: {
+    type: DataTypes.STRING
+  },
+  average: {
+    type: DataTypes.FLOAT,
+  }
+  });
 };
 
-export function StudentFactory (sequelize: Sequelize) : StudentStatic{
+export const Faculty = sequelize.define("faculty",{
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+});
 
-  return <StudentStatic>sequelize.define("students", {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
-      primaryKey: true
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    sex: {
-      type: DataTypes.STRING
-    },
-    phone: {
-      type: DataTypes.STRING
-    },
-    faculty: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    average: {
-      type: DataTypes.FLOAT,
-    }
-  });
-}
+Student.belongsTo(Faculty, {foreignKey: "facultyId"})
 
+sequelize.sync(/*{force : true}*/);
 //console.log(Student === sequelize.models.Student)

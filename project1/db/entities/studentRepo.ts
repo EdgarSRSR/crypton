@@ -1,4 +1,4 @@
-
+/**
 import {Student} from './students';
 module.exports = (db) =>{
 
@@ -14,3 +14,4 @@ module.exports = (db) =>{
 
 
 }
+**/

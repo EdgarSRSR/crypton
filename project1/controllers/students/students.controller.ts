@@ -1,3 +1,4 @@
+/**
 import { Student } from '../../db/entities';
 import { ResponseToolkit, ServerRoute, Request } from 'hapi';
 import { Sequelize, DataTypes, Model } from 'sequelize';
@@ -32,4 +33,4 @@ export const studentController = Array<ServerRoute> => {
       },
     },
   ];
-};
+};**/

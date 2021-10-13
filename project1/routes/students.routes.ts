@@ -1,3 +1,4 @@
+/**
 import {Server} from '@hapi/hapi'
 import {createStudent, getStudents, getStudent, deleteStudent, updateStudent} from '../controllers/students.controller'
 import {dbConfig} from '../db/connections'
@@ -17,7 +18,7 @@ export const routes = (server: Server) => {
       } catch(error){
         console.log(error);
       };
-    }**/
+    }
   });
 
   server.route({
@@ -85,3 +86,4 @@ export const routes = (server: Server) => {
   });
 
 }
+**/

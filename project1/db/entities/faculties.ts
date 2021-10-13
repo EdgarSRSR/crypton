@@ -1,3 +1,5 @@
+
+/**
 import { Sequelize, DataTypes, Model, BuildOptions } from 'sequelize';
 import uuid = require('uuid');
 
@@ -32,7 +34,7 @@ module.exports = (sequelize, DataTypes) =>{
   return faculty;
 
 };**/
-
+/**
 module.exports = (sequelize: any, DataTypes: any) => {
   class Faculty extends Model<FacultyAttributes>
   implements FacultyAttributes{
@@ -60,3 +62,5 @@ module.exports = (sequelize: any, DataTypes: any) => {
   });
   return Faculty;
 };
+
+**/

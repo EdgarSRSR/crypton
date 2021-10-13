@@ -1,3 +1,4 @@
+/**
 import {Request, ResponseToolkit, ResponseObject} from '@hapi/hapi'
 
 import {Student} from '../db/connections'
@@ -63,3 +64,4 @@ export const createStudent = async (request: Request, h: ResponseToolkit) : Prom
           return h.response(error).code(500);
         }
       };
+**/
